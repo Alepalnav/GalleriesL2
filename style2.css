@@ -1,0 +1,142 @@
+body {
+    margin: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-auto-rows: 100px 300px;
+    grid-gap:10px;
+    grid-auto-flow: dense;
+}
+
+.gallery-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gallery-container .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.gallery-container:hover .image img{
+    transform: scale(1.5);
+}
+
+.gallery-container .text{
+    opacity: 0;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: azure;
+    font-size: 30px;
+    pointer-events: none;
+    z-index: 4;
+    transition: .3s ease-in-out;
+}
+.gallery-container:hover .text{
+    opacity: 1;
+    animation: move-down .3s linear;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.w-1 {
+    grid-column: span 1;
+}
+.w-2 {
+    grid-column: span 2;
+}
+.w-3 {
+    grid-column: span 3;
+}
+.w-4 {
+    grid-column: span 4;
+}
+.w-5 {
+    grid-column: span 5;
+}
+.w-6 {
+    grid-column: span 6;
+}
+
+.h-2{
+    grid-row:span 2;
+}
+.h-3{
+    grid-row:span 3;
+}
+.h-4{
+    grid-row:span 4;
+}
+.h-5{
+    grid-row:span 5;
+}
+.h-6{
+    grid-row:span 6;
+}
+
+/*Realiza un @media max 500 pixeles con grid de dos columnas
+y el tamaño del texto en la columna izquierda se reduce*/
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap:10px;
+        grid-auto-flow: dense;
+        grid-auto-rows:  300px;
+
+    }
+    .w-1 {
+        grid-column: span 1;
+    }
+    .w-2 {
+        grid-column: span 1;
+    }
+    .w-3 {
+        grid-column: span 1;
+    }
+    .w-4 {
+        grid-column: span 1;
+    }
+    .w-5 {
+        grid-column: span 1;
+    }
+    .w-6 {
+        grid-column: span 1;        
+    }
+
+    .h-2{
+        grid-row:span 1;
+    }
+    .h-3{
+        grid-row:span 1;
+    }
+    .h-4{
+        grid-row:span 1;
+    }
+    .h-5{
+        grid-row:span 1;
+    }
+    .h-6{
+        grid-row:span 1;
+    }
+}
